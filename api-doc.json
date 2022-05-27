@@ -1,0 +1,148 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Numerical_Method_API",
+    "description": "Numerical_Method_API_By_Cheewathep_Testongla",
+    "version": "0.1"
+  },
+  "servers": [
+    {
+      "url": "https://numerical-react-api.herokuapp.com/"
+    }
+  ],
+  "paths": {
+    "/Numerical_Method": {
+      "get": {
+        "description": "Get Data by Chapter within Numerical Method Subject",
+        "responses": {
+          "200": {
+            "description": "if responses means can get data from API",
+            "content": {
+              "application/json; charset=utf-8": {
+                "examples": {
+                  "0": {
+                    "value": "{\"Numerical_Method\":[{\"Bisection\":[{\"id\":1,\"equation\":\"(43*x)-1\",\"left\":0.02,\"right\":0.03},{\"id\":2,\"equation\":\"(x^2)-3\",\"left\":0.02,\"right\":0.03},{\"id\":3,\"equation\":\"(x^4)-13\",\"left\":1.5,\"right\":2},{\"id\":4,\"equation\":\"x-1\",\"left\":-1,\"right\":2},{\"id\":5,\"equation\":\"(x^2)+(51*x)+50\",\"left\":-60,\"right\":0},{\"id\":6,\"equation\":\"(x^2)+(9*x)-10\",\"left\":-20,\"right\":0.5}],\"False_Position\":[{\"id\":1,\"equation\":\"(43*x)-1\",\"left\":0.02,\"right\":0.03},{\"id\":2,\"equation\":\"(x^2)-3\",\"left\":0.02,\"right\":0.03},{\"id\":3,\"equation\":\"(x^4)-13\",\"left\":1.5,\"right\":2},{\"id\":4,\"equation\":\"x-1\"}]}]}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://numerical-react-api.herokuapp.com/"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "https://numerical-react-api.herokuapp.com/"
+        }
+      ]
+    },
+    "/users": {
+      "get": {
+        "description": "Store Login Data",
+        "responses": {
+          "200": {
+            "description": "Store Login Data",
+            "content": {
+              "application/json; charset=utf-8": {
+                "examples": {
+                  "0": {
+                    "value": "{\"User\":{\"email\":\"s620406216049@email.kmutnb.ac.th\",\"password\":\"55555\"}}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://numerical-react-api.herokuapp.com/"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "https://numerical-react-api.herokuapp.com/"
+        }
+      ]
+    },
+    "/login": {
+      "post": {
+        "description": "Login to get TOKEN to use API",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/login_body"
+              },
+              "examples": {
+                "0": {
+                  "value": "{\"email\": \"s620406216049@email.kmutnb.ac.th\",\"password\": \"55555\"}"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "All Header data",
+            "content": {
+              "application/json; charset=utf-8": {
+                "examples": {
+                  "0": {
+                    "value": "{\"Token\":\"Example TOKEN\"}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "https://numerical-react-api.herokuapp.com/"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "https://numerical-react-api.herokuapp.com/"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {
+      "login_body": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

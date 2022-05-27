@@ -1,0 +1,219 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Numerical React Api Documentation",
+    "description": "Document for use API React",
+    "version": "0.1"
+  },
+  "servers": [
+    {
+      "url": "https://numerical-react-api.herokuapp.com/"
+    }
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "description": "Login to get TOKEN to use API",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/users_body"
+              },
+              "examples": {
+                "0": {
+                  "value": "{\"users\":[{\"email\":\"s6204062616316@email.kmutnb.ac.th\",\"password\":\"$2a$10$N54mj1kp8s6ZEZv1vXK5sO3pZ7lDl7FVTKcMIfKA4SSYHN5Anr7zm\",\"id\":1}]}"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "All Header data",
+            "content": {
+              "application/json; charset=utf-8": {
+                "examples": {
+                  "0": {
+                    "value": "{\"accessToken\":\"Token\"}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "https://numerical-react-api.herokuapp.com/"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "https://numerical-react-api.herokuapp.com/"
+        }
+      ]
+    },
+    "/login": {
+      "post": {
+        "description": "Login to get TOKEN to use API",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/login_body"
+              },
+              "examples": {
+                "0": {
+                  "value": "{\"email\": \"s6204062616316@email.kmutnb.ac.th\",\"password\": \"0859150757\"}"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "All Header data",
+            "content": {
+              "application/json; charset=utf-8": {
+                "examples": {
+                  "0": {
+                    "value": "{\"accessToken\":\"Token\"}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "https://numerical-react-api.herokuapp.com/"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "https://numerical-react-api.herokuapp.com/"
+        }
+      ]
+    },
+    "/root-equation": {
+      "get": {
+        "description": "Get Data form root-equation",
+        "responses": {
+          "200": {
+            "description": "Data form root-equation ex Bisection, One Point",
+            "content": {
+              "application/json; charset=utf-8": {
+                "examples": {
+                  "0": {
+                    "value": "{\"root-equation\":{\"bisection\":[{\"id\":1,\"problem\":\"x^4-13\"},{\"id\":2,\"problem\":\"x^2-20\"}],\"falsePosition\":[{\"id\":1,\"problem\":\"x^6-17\"},{\"id\":2,\"problem\":\"x^10-1\"}],\"onePoint\":[{\"id\":1,\"problem\":\"-e^(x/4)+2\"}],\"newtonRaphson\":[{\"id\":1,\"problem\":\"7-(x^2)\"}]}}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://numerical-react-api.herokuapp.com/"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "https://numerical-react-api.herokuapp.com/"
+        }
+      ]
+    },
+    "/linear": {
+      "get": {
+        "description": "Get Data form Linear",
+        "responses": {
+          "200": {
+            "description": "Data form Linear ex Cramer Rule's, Gauss Elimination",
+            "content": {
+              "application/json; charset=utf-8": {
+                "examples": {
+                  "0": {
+                    "value": "{\"linear\":{\"cramerRule\":[{\"id\":1,\"matrixA\":\"[[-2, 3, 1],[3, 4, -5],[1, -2, 1]]\",\"matrixB\":\"[9, 0, -4]\"},{\"id\":2,\"matrixA\":\"[[5, 2, 0, 0],[2, 5, 2, 0],[0, 2, 5, 2],[0, 0, 2, 5]]\",\"matrixB\":\"[12, 17, 14, 7]\"}],\"gaussElimination\":[{\"id\":1,\"matrixA\":\"[[-2, 3, 1],[3, 4, -5],[1, -2, 1]]\",\"matrixB\":\"[9, 0, -4]\"},{\"id\":2,\"matrixA\":\"[[5, 2, 0, 0],[2, 5, 2, 0],[0, 2, 5, 2],[0, 0, 2, 5]]\",\"matrixB\":\"[12, 17, 14, 7]\"}]}}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "https://numerical-react-api.herokuapp.com/"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "https://numerical-react-api.herokuapp.com/"
+        }
+      ]
+    },
+    "/polation": {
+      "get": {
+        "description": "Get Data form Polation",
+        "responses": {
+          "200": {
+            "description": "Data form Polation ex Newton, Lagrange",
+            "content": {
+              "application/json; charset=utf-8": {
+                "examples": {
+                  "0": {
+                    "value": "{\"polation\":{\"newtonDivide\":[{\"id\":1,\"x\":[0,20000,40000,60000,80000],\"y\":[9.81,9.7487,9.6879,9.6879,9.5682]}],\"lagrange\":[{\"id\":1,\"x\":[-100,0,100,200,300,400],\"y\":[215,202,206,215,228,249]}]}}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "https://numerical-react-api.herokuapp.com/"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "https://numerical-react-api.herokuapp.com/"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {
+      "users_body": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        }
+      },
+      "login_body": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
