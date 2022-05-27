@@ -1,0 +1,31 @@
+name: CI/CD pipeline Github-Pages & Docker
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:    
+  build-and-deploy-to-heroku :
+      concurrency: ci-${{ github.ref }} 
+      runs-on: ubuntu-latest
+      environment: 
+        name: Production
+        url: https://numerical-react-api.herokuapp.com/api-doc/
+        
+      steps:
+      - name: Checkout 
+        uses: actions/checkout@v2
+
+      - name: Install 
+        run: yarn install
+                 
+      - name: Test
+        run: yarn test
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12 
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "numerical-react-api" 
+          heroku_email: "puchitekub12@gmail.com"
+            
+                  
