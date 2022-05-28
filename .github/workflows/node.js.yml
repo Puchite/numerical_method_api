@@ -1,4 +1,4 @@
-name: CI/CD pipeline Github-Pages & Docker
+name: CI/CD pipeline Heroku
 
 on:
   push:
